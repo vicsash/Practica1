@@ -21,7 +21,7 @@ public class Practica{
             lector.nextLine();
             switch(menu){
             case 1 : 
-                do{
+                
                     //Second sub menu for basic opertaions
                     System.out.println("*****************************");
                     System.out.println("** OPERACIONES ARITMÉTICAS **");
@@ -35,38 +35,82 @@ public class Practica{
                     System.out.println("0. Volver al menú principal");
                     System.out.println("");
                     System.out.println("Elija una opción:");
-                    second=lector.nextInt();
-                    lector.nextLine();
-                    switch(second){
-                    case 1:
-                        System.out.println("Prueba1");
+                    do{
+                        second=lector.nextInt();
+                        lector.nextLine();
+                        switch(second){
+                        case 1:
+                            System.out.println("Prueba1");
+                            break;
+                        case 2:
+                            System.out.println("Prueba2");
+                            break;
+                        case 3: 
+                            System.out.println("Prueba3");
+                            break;
+                        case 4:
+                            System.out.println("Prueba4");
+                            break;
+                        case 5:
+                            System.out.println("Prueba5");
+                            break;
+                        case 0:
+                            System.out.println("Return");
+                            break;
+                        default:
+                        System.out.println("Dato incorrecto, repitir");
                         break;
-                    case 2:
-                        System.out.println("Prueba2");
-                        break;
-                    case 3: 
-                        System.out.println("Prueba3");
-                        break;
-                    case 4:
-                        System.out.println("Prueba4");
-                        break;
-                    case 5:
-                        System.out.println("Prueba5");
-                        break;
-                    case 0:
-                        System.out.println("Return");
-                        break;
-                    default:
-                    System.out.println("Dato incorrecto, repitir");
-                    break;
-                    }
+                        }
                 }while((second!=0));
                 
             
             
             break;
             case 2 :
-            System.out.println("Test2");
+                System.out.println("**************************");
+                System.out.println("** CONVERSIONES DE BASE **");
+                System.out.println("**************************");
+                System.out.println("1. De decimal a binario");
+                System.out.println("2. De decimal a hexadecimal");
+                System.out.println("3. De binario a decimal");
+                System.out.println("4. De binario a hexadecimal");
+                System.out.println("5. De hexadecimal a binario");
+                System.out.println("6. De hexadecimal a decimal");
+                System.out.println("---------------------------");
+                System.out.println("0. Volver al menú principal");
+                System.out.println("");
+                System.out.println("Elija una opción:");
+                do{
+                    third=lector.nextInt();
+                    lector.nextLine();
+                    switch(third){
+                        case 1:
+                            System.out.println("Prueba1");
+                            break;
+                        case 2:
+                            System.out.println("Prueba2");
+                            break;
+                        case 3: 
+                            System.out.println("Prueba3");
+                            break;
+                        case 4:
+                            System.out.println("Prueba4");
+                            break;
+                        case 5:
+                            System.out.println("Prueba5");
+                            break;
+                        case 6:
+                            System.out.println("Prueba6"); 
+                            break;
+                        case 0:
+                            System.out.println("Return");
+                            break;
+                        default:
+                        System.out.println("Dato incorrecto, repitir");
+                        break;
+                        }
+
+                }while((third!=0));
             //Other five operations
             break;
             case 0 :
