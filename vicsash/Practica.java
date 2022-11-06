@@ -2,8 +2,8 @@ import java.util.Scanner;
 public class Practica{
     public static void main(String args[]){
         
-        int menu,second,third, num1, num2, num3 ;
-        
+        int menu,second,third, num1, num2, num3,decimal, numero ;
+        //String decimal;
 
         Scanner lector = new Scanner(System.in);
         // The basic structure of the menu is a do while with a switch
@@ -107,7 +107,11 @@ public class Practica{
                     lector.nextLine();
                     switch(third){
                         case 1:
-                            System.out.println("Prueba1");
+                        System.out.print("Introduce un numero entero >= 0: ");
+                        numero = lector.nextInt();
+                        
+                        System.out.print(obtenerBinario(numero));
+                            
                             break;
                         case 2:
                             System.out.println("Prueba2");
@@ -148,5 +152,22 @@ public class Practica{
         }while((menu!=0));
         lector.close();
     }
-
+    
+    
+    public static double obtenerBinario(int numero){
+        int exp, digito;
+        double binario;
+        while(numero<0);
+    
+        exp=0;
+        binario=0;
+        while(numero!=0){
+                digito = numero % 2;            
+                binario = binario + digito * Math.pow(10, exp);   
+                exp++;
+                numero = numero/2;
+                
+        }
+        return binario;
+    }
 }
