@@ -2,20 +2,17 @@ import java.util.Scanner;
 public class Practica{
     public static void main(String args[]){
         
-        int menu,second,third ;
+        int menu,second,third, num1, num2, num3 ;
         
 
         Scanner lector = new Scanner(System.in);
         // The basic structure of the menu is a do while with a switch
         do{
-            System.out.println("***************");
-            System.out.println("**Calculadora**");
-            System.out.println("***************");
+            System.out.println("*******************\n**  Calculadora  **\n*******************");
             System.out.println("1. Operaciones aritméticas");
             System.out.println("2. Conversiones de base");
             System.out.println("--------------------------");
-            System.out.println("0. Salir del programa");
-            System.out.println("");
+            System.out.println("0. Salir del programa \n\n");
             System.out.println("Elija una opción:");
             menu=lector.nextInt();
             lector.nextLine();
@@ -40,19 +37,44 @@ public class Practica{
                         lector.nextLine();
                         switch(second){
                         case 1:
-                            System.out.println("Prueba1");
+                            System.out.println("Introducce el primer nuemero: ");
+                            num1=lector.nextInt();
+                            System.out.println("Introducce el segundo nuemero: ");
+                            num2=lector.nextInt();
+                            num3 = num1 + num2;
+                            System.out.println(num1 + " + " + num2 + " = "  + num3);
                             break;
                         case 2:
-                            System.out.println("Prueba2");
+                            System.out.println("Introducce el primer nuemero: ");
+                            num1=lector.nextInt();
+                            System.out.println("Introducce el segundo nuemero: ");
+                            num2=lector.nextInt();
+                            num3 = num1 - num2;
+                            System.out.println(num1 + " - " + num2 + " = "  + num3);
                             break;
-                        case 3: 
-                            System.out.println("Prueba3");
+                        case 3:
+                            System.out.println("Introducce el primer nuemero: ");
+                            num1=lector.nextInt();
+                            System.out.println("Introducce el segundo nuemero: ");
+                            num2=lector.nextInt();
+                            num3 = num1 * num2;
+                            System.out.println(num1 + " * " + num2 + " = "  + num3);
                             break;
                         case 4:
-                            System.out.println("Prueba4");
+                            System.out.println("Introducce el primer nuemero: ");
+                            num1=lector.nextInt();
+                            System.out.println("Introducce el segundo nuemero: ");
+                            num2=lector.nextInt();
+                            num3 = num1 / num2;
+                            System.out.println(num1 + " / " + num2 + " = "  + num3);
                             break;
                         case 5:
-                            System.out.println("Prueba5");
+                            System.out.println("Introducce el primer nuemero: ");
+                            num1=lector.nextInt();
+                            System.out.println("Introducce el segundo nuemero: ");
+                            num2=lector.nextInt();
+                            num3 = num1 % num2;
+                            System.out.println(num1 + " % " + num2 + " es: "  + num3);
                             break;
                         case 0:
                             System.out.println("Return");
