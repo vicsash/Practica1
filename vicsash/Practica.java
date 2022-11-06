@@ -83,7 +83,7 @@ public class Practica{
                         System.out.println("Dato incorrecto, repitir");
                         break;
                         }
-                }while((second!=0));
+                }while((second!=0 || second<=3));
                 
             
             
