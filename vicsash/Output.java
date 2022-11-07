@@ -1,11 +1,11 @@
 import java.util.Scanner;
-public class output{
+public class Output {
 	int x = 0;
 	int y = 0;
 
 	public static Scanner scan = new Scanner(System.in);
 	//constructor
-    public output(){
+    public Output(){
 	    this.x = 0;
         this.y = 0;
 	}
@@ -22,8 +22,6 @@ public class output{
         write("Introduce el segundo numero:");
 	    this.y = Integer.parseInt(scan.nextLine());
 	}
-
-
 
 }
 
