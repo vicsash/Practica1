@@ -111,7 +111,7 @@ public class Practica{
                             break;
                         case 5:
                             System.out.print("Introduce un numero hexadecimal: ");
-                            hexadecimal = lector.nextLine().toUpperCase().toLowerCase();
+                            hexadecimal = lector.nextLine().toUpperCase();
                             if (!validarHexadecimal(hexadecimal)) {
                                 System.out.println("Número no válido");
                                 return;
@@ -122,7 +122,7 @@ public class Practica{
                             break;
                         case 6:
                             System.out.print("Introduce un numero hexadecimal: ");
-                            hexadecimal = lector.nextLine().toUpperCase().toLowerCase();
+                            hexadecimal = lector.nextLine().toUpperCase();
                             if (!validarHexadecimal(hexadecimal)) {
                                 System.out.println("Número no válido");
                                 return;
@@ -178,7 +178,7 @@ public class Practica{
      */
     public static String decimalAHexadecimal(int decimal) {
         String hexadecimal = "";
-        String caracteresHexadecimales = "0123456789ABCDEF";
+        String caracteresHexadecimales = "0123456789abcdf";
         while (decimal > 0) {
             int residuo = decimal % 16;
             hexadecimal = caracteresHexadecimales.charAt(residuo) + hexadecimal; // Agregar a la izquierda
