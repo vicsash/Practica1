@@ -2,7 +2,8 @@ import java.util.Scanner;
 public class Practica{
     public static void main(String args[]){
         
-        int menu = 0,second,third,numero ;
+        int menu = 0,second = 0,third,numero ;
+        boolean repeatIfErr = false;
 
         int r = 0;
         //String decimal;
@@ -20,9 +21,17 @@ public class Practica{
             System.out.println("*******************\n**  Calculadora  **\n*******************");
             System.out.println("1. Operaciones aritméticas\n2. Conversiones de base\n--------------------------\n0. Salir del programa \n\nElija una opción:");
 
+            repeatIfErr = false;
+            do {
+              try{
+                    menu = Integer.parseInt(lector.nextLine());
+                    repeatIfErr = true;
+                } catch(Exception e) {
+                    System.out.println("Error: Introduce 0, 1 o 2");
+                }  
+            } while(repeatIfErr == false);
             
             
-            menu = Integer.parseInt(lector.nextLine());
 
             switch(menu){
                 case 1 : 
@@ -31,9 +40,18 @@ public class Practica{
                     System.out.println("1. Sumar\n2. Restar\n3. Multiplicar\n4. Dividir\n5. Resto de la división\n-----------------------------\n0. Volver al menú principal");
                     System.out.println("Elija una opción:");
 
-                    second = lector.nextInt();
-                    lector.nextLine();
+                    //second = Integer.parseInt(lector.nextLine());
                     
+
+                    repeatIfErr = false;
+                    do {
+                      try{
+                            second = Integer.parseInt(lector.nextLine());
+                            repeatIfErr = true;
+                        } catch(Exception e) {
+                            System.out.println("Error: Introduce 0, 1, 2 ,3 , 4 o 5");
+                        }  
+                    } while(repeatIfErr == false);
 
                     if (second == 0)
                         break;
@@ -131,7 +149,7 @@ public class Practica{
             
             }
         } while(menu != 0);
-        
+       lector.close(); 
     }
     
     /**
