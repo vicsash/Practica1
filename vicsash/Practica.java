@@ -10,7 +10,7 @@ public class Practica{
         Scanner lector = new Scanner(System.in);
 
         // create an object (class output)
-        output s = new output();
+        Output s = new Output();
         // The basic structure of the menu is a do while with a switch
         do{
             System.out.println("*******************\n**  Calculadora  **\n*******************");
