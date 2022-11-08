@@ -4,6 +4,12 @@ public class Practica {
     public static void main(String args[]) {
 
         int menu, second, third, numero;
+        String Calculadora = "*******************\n**  Calculadora  **\n*******************";
+        String MenuPrincipal = "1. Operaciones aritméticas\n2. Conversiones de base\n--------------------------\n0. Salir del programa \n\nElija una opción:";
+        String OperacionAritmetica = "*****************************\n** OPERACIONES ARITMÉTICAS **\n*****************************";
+        String SubMenuAritmetica = "1. Sumar\n2. Restar\n3. Multiplicar\n4. Dividir\n5. Resto de la división\n-----------------------------\n0. Volver al menú principal";
+        String ConversionBase = "**************************\n** CONVERSIONES DE BASE **\n**************************";
+        String SubMenuConversion = "1. De decimal a binario\n2. De decimal a hexadecimal\n3. De binario a decimal\n4. De binario a hexadecimal\n5. De hexadecimal a binario\n6. De hexadecimal a decimal\n---------------------------\n" ;
 
         int r = 0;
         // String decimal;
@@ -14,9 +20,8 @@ public class Practica {
         Output s1 = new Output();
         // The basic structure of the menu is a do while with a switch
         do {
-            System.out.println("*******************\n**  Calculadora  **\n*******************");
-            System.out.println(
-                    "1. Operaciones aritméticas\n2. Conversiones de base\n--------------------------\n0. Salir del programa \n\nElija una opción:");
+            System.out.println(Calculadora);
+            System.out.println(MenuPrincipal);
             menu = lector.nextInt();
             lector.nextLine();
             switch (menu) {
@@ -24,20 +29,25 @@ public class Practica {
 
                     // Second sub menu for basic opertaions
                     do{
-                        System.out.println("*****************************\n** OPERACIONES ARITMÉTICAS **\n*****************************");
-                        System.out.println("1. Sumar\n2. Restar\n3. Multiplicar\n4. Dividir\n5. Resto de la división\n-----------------------------\n0. Volver al menú principal");
+                        System.out.println(OperacionAritmetica);
+                        System.out.println(SubMenuAritmetica);
                         System.out.println("Elija una opción:");
                         second = lector.nextInt();
                         lector.nextLine();
                         switch (second) {
+                            //Addition
                             case 1:
                                 do{
-                                    s1.numinput(); // call method from class "output"
-                                    r = s1.x + s1.y; // call call variable x & y
+                                    // call method from class "output"
+                                    s1.numinput(); 
+                                    // call call variable x & y
+                                    r = s1.x + s1.y; 
                                     s1.write(s1.x + " + " + s1.y + " = " + r);
-                                    s1.continues();// call method "continues" from class "output"
+                                    // call method "continues" from class "output"
+                                    s1.continues();
                                 } while (s1.continuar.equals("si"));
                                 break;
+                            //Substraction  
                             case 2:
                                 do{
                                     s1.numinput();
@@ -46,6 +56,7 @@ public class Practica {
                                     s1.continues();
                                 }while (s1.continuar.equals("si"));
                                 break;
+                            //Multiplication
                             case 3:
                                 do{
                                     s1.numinput();
@@ -54,6 +65,7 @@ public class Practica {
                                     s1.continues();
                                 }while (s1.continuar.equals("si"));
                                 break;
+                            //Division    
                             case 4:
                                 do{
                                     s1.numinput();
@@ -62,6 +74,7 @@ public class Practica {
                                     s1.continues();
                                 } while (s1.continuar.equals("si"));
                                 break;
+                            //Remainder of division    
                             case 5:
                                 do{
                                     s1.numinput();
@@ -79,15 +92,16 @@ public class Practica {
                     break;
                 case 2:          
                     do {
-                        System.out.println("**************************\n** CONVERSIONES DE BASE **\n**************************");
+                        System.out.println(ConversionBase);
                         System.out.println("");
                         System.out.println("");
-                        System.out.println("1. De decimal a binario\n2. De decimal a hexadecimal\n3. De binario a decimal\n4. De binario a hexadecimal\n5. De hexadecimal a binario\n6. De hexadecimal a decimal\n---------------------------\n");
+                        System.out.println(SubMenuConversion);
                         System.out.println("0. Volver al menú principal\n");
                         System.out.println("Elija una opción:");
                         third = lector.nextInt();
                         lector.nextLine();
                         switch (third) {
+                            //Decimal to binary
                             case 1:
                             do{
                                 System.out.print("Introduce un numero Decimal >= 0: ");
@@ -96,6 +110,7 @@ public class Practica {
                                 s1.continues();
                             }while (s1.continuar.equals("si"));
                                 break;
+                            //Decimal to hexadecimal    
                             case 2:
                             do{
                                 System.out.print("Introduce un numero Decimal >= 0: ");
@@ -104,6 +119,7 @@ public class Practica {
                                 System.out.print(decimalAHexadecimal(numero));
                             }while (s1.continuar.equals("si"));
                                 break;
+                            //Binary to decimal    
                             case 3:
                                 System.out.print("Introduce un numero binario: ");
                                 numero = lector.nextInt();
@@ -114,6 +130,7 @@ public class Practica {
                                 int decimal = binarioADecimal(numero);
                                 System.out.print(decimal);
                                 break;
+                            //Binary to hexadecimal
                             case 4:
                                 System.out.print("Introduce un numero binario: ");
                                 numero = lector.nextInt();
@@ -125,6 +142,7 @@ public class Practica {
                                 String hexadecimal = binarioAHexadecimal(numero);
                                 System.out.print(hexadecimal);
                                 break;
+                            //Hexadecimal to binary    
                             case 5:
                                 System.out.print("Introduce un numero hexadecimal: ");
                                 hexadecimal = lector.nextLine().toUpperCase();
@@ -136,6 +154,7 @@ public class Practica {
                                 Long binarioResultante = decimalABinario(decimal);
                                 System.out.print(binarioResultante);
                                 break;
+                            //Hexadecimal to decimal    
                             case 6:
                                 System.out.print("Introduce un numero hexadecimal: ");
                                 hexadecimal = lector.nextLine().toUpperCase();
@@ -152,7 +171,7 @@ public class Practica {
                         }
 
                     } while ((third != 0));
-                    // Other five operations
+                    
                     break;
                 case 0:
                     System.out.println("Fin");
@@ -195,7 +214,8 @@ public class Practica {
         String caracteresHexadecimales = "0123456789abcdf";
         while (decimal > 0) {
             int residuo = decimal % 16;
-            hexadecimal = caracteresHexadecimales.charAt(residuo) + hexadecimal; // Agregar a la izquierda
+            // Agregar a la izquierda
+            hexadecimal = caracteresHexadecimales.charAt(residuo) + hexadecimal; 
             decimal /= 16;
         }
         return hexadecimal;
