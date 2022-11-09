@@ -3,10 +3,8 @@ import java.util.Scanner;
 public class Practica {
     public static void main(String args[]) {
 
-        int menu, second, third, numero;
-        
-       
-        
+        int menu, second = 0, third, numero;
+        boolean repeatIfErr = false;
         
 
         int r = 0;
@@ -25,68 +23,41 @@ public class Practica {
                 case 1:
 
                     // Second sub menu for basic opertaions
-                    do{
-                        System.out.println(SubMenuAritmetica());
-                        second = lector.nextInt();
-                        lector.nextLine();
-                        switch (second) {
-                            //Addition
-                            case 1:
-                                do{
-                                    // call method from class "output"
-                                    s1.numinput(); 
-                                    // call call variable x & y
-                                    r = s1.x + s1.y; 
-                                    s1.write(s1.x + " + " + s1.y + " = " + r);
-                                    // call method "continues" from class "output"
-                                    s1.continues();
-                                } while (s1.continuar.equals("si"));
-                                break;
-                            //Substraction  
-                            case 2:
-                                do{
-                                    s1.numinput();
-                                    r = s1.x - s1.y;
-                                    s1.write(s1.x + " - " + s1.y + " = " + r);
-                                    s1.continues();
-                                }while (s1.continuar.equals("si"));
-                                break;
-                            //Multiplication
-                            case 3:
-                                do{
-                                    s1.numinput();
-                                    r = s1.x * s1.y;
-                                    s1.write(s1.x + " * " + s1.y + " = " + r);
-                                    s1.continues();
-                                }while (s1.continuar.equals("si"));
-                                break;
-                            //Division    
-                            case 4:
-                                do{
-                                    s1.numinput();
-                                    r = s1.x / s1.y;
-                                    s1.write(s1.x + " / " + s1.y + " = " + r);
-                                    s1.continues();
-                                } while (s1.continuar.equals("si"));
-                                break;
-                            //Remainder of division    
-                            case 5:
-                                do{
-                                    s1.numinput();
-                                    r = s1.x % s1.y;
-                                    s1.write(s1.x + " % " + s1.y + " = " + r);
-                                    s1.continues();
-                                }while (s1.continuar.equals("si"));
-                                break;
-                            default:
-                                if(second > 5 || 0 <second){
-                                    System.out.println("Dato incorrecto, repetir");
-                                    break;
-                                }
-                        }
-                    } while ((second != 0));
+                    
+                    System.out.println(SubMenuAritmetica());
+ 
+                    // Repeat if the user dosent input a number or inputs a higher than 5 or lower than 0
+                    // Repite si el usuario no pone un numero o pone un numero mayor que 5 o menor que 0
+                    repeatIfErr = false;
+                    do {
+                        try{
+                            // asks user for input
+                            second = Integer.parseInt(lector.nextLine());
 
-                    break;
+                            // if input too high or low, repeat input
+                            if(second > 5 || second < 0){
+                                System.out.println("Error: Introduce 0, 1, 2 ,3 , 4 o 5");
+                                continue;
+                            }
+
+                            // if input correct, exit "do while" loop and either goes back (0) or does the operation
+                            // si el entrada era correcto, sale del "do while", si es un 0 sale al menu principaly si es otro numero menor que 6 imprime el resultado del operacion
+                            repeatIfErr = true;
+                        } catch(Exception e) {
+                            System.out.println("Error: Introduce 0, 1, 2 ,3 , 4 o 5");
+                        }  
+                    } while(repeatIfErr == false);
+                        
+                    // if 0, go to main menu. else print text with result of operation
+                    if (second == 0){
+                        break;
+                    } else {
+                        // asks user for operation numbers, prints operation result
+                        // pide el usuario para los numeros del operacion, imprime el resultado
+                        System.out.printf("El resultado es: %.2f \n", aritmetica(second));
+                        break; 
+                    }
+                        
                 case 2:          
                     do {
                         System.out.println(SubMenuConversion());
@@ -179,6 +150,79 @@ public class Practica {
         } while ((menu != 0));
         lector.close();
     }
+
+    /**
+     * Inputs a number that says what operation to use,
+     * prints text asking the user to input two number and
+     * uses those numbers to do math depending on the number
+     * 
+     * Usa un numero de 1 a 5 para decidir que operacion hay que usar,
+     * imprime dos veces para la entrada de datos
+     * @param op
+     * @return
+     */
+    public static double aritmetica(int op){
+        double result = 0, num1 = 0, num2 = 0;
+
+        // Closing the scanner inside the method closes "System.in" meaning scanners outside of the method will fail
+        // Cerrando un scanner dentro de un metodo cierra "System.in", significa que el scanner dejara de funcionar dentro del programa
+        Scanner userInput = new Scanner(System.in);
+        boolean noError = false;
+
+        // Output and input for "num1"
+        do{
+            try{
+                System.out.println("Introduce el primer numero: ");
+                num1 = Double.parseDouble(userInput.nextLine()); 
+                noError = true;
+            } catch (Exception e) {
+                System.out.println("Habia un error. Intente de vuelta ");
+            }
+        } while (!noError);
+
+        noError = false;
+
+        // Output and input for "num2"
+        do{
+            try{
+                System.out.println("Introduce el segundo numero: ");
+                num2 = Double.parseDouble(userInput.nextLine()); 
+                noError = true;
+            } catch (Exception e) {
+                System.out.println("Habia un error. Intente de vuelta ");
+            }
+        } while (!noError);
+
+        switch (op){
+            case 1:
+                // Addition
+                result = num1 + num2;
+                break;
+            case 2:
+                // Subtraction
+                result = num1 - num2;
+                break;
+            case 3:
+                // Multiplication
+                result = num1 * num2;
+                break;
+            case 4:
+                // Division
+                result = num1 / num2;
+                break;
+            case 5:
+                // Modulo
+                result = num1 % num2;
+                break;
+            default:
+                System.out.println("Error: Introduce 0, 1, 2 ,3 , 4 o 5");
+        }
+
+        return result;
+        
+    }
+
+
 
     /**
      * Convierte de decimal a binario. Solo positivos
