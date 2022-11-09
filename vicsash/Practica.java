@@ -4,12 +4,10 @@ public class Practica {
     public static void main(String args[]) {
 
         int menu, second, third, numero;
-        String Calculadora = "*******************\n**  Calculadora  **\n*******************";
-        String MenuPrincipal = "1. Operaciones aritméticas\n2. Conversiones de base\n--------------------------\n0. Salir del programa \n\nElija una opción:";
-        String OperacionAritmetica = "*****************************\n** OPERACIONES ARITMÉTICAS **\n*****************************";
-        String SubMenuAritmetica = "1. Sumar\n2. Restar\n3. Multiplicar\n4. Dividir\n5. Resto de la división\n-----------------------------\n0. Volver al menú principal";
-        String ConversionBase = "**************************\n** CONVERSIONES DE BASE **\n**************************";
-        String SubMenuConversion = "1. De decimal a binario\n2. De decimal a hexadecimal\n3. De binario a decimal\n4. De binario a hexadecimal\n5. De hexadecimal a binario\n6. De hexadecimal a decimal\n---------------------------\n" ;
+        
+       
+        
+        
 
         int r = 0;
         // String decimal;
@@ -20,8 +18,7 @@ public class Practica {
         Output s1 = new Output();
         // The basic structure of the menu is a do while with a switch
         do {
-            System.out.println(Calculadora);
-            System.out.println(MenuPrincipal);
+            System.out.println(MenuPrincipal());
             menu = lector.nextInt();
             lector.nextLine();
             switch (menu) {
@@ -29,9 +26,7 @@ public class Practica {
 
                     // Second sub menu for basic opertaions
                     do{
-                        System.out.println(OperacionAritmetica);
-                        System.out.println(SubMenuAritmetica);
-                        System.out.println("Elija una opción:");
+                        System.out.println(SubMenuAritmetica());
                         second = lector.nextInt();
                         lector.nextLine();
                         switch (second) {
@@ -84,20 +79,17 @@ public class Practica {
                                 }while (s1.continuar.equals("si"));
                                 break;
                             default:
-                                System.out.println("Dato incorrecto, repetir");
-                                break;
+                                if(second > 5 || 0 <second){
+                                    System.out.println("Dato incorrecto, repetir");
+                                    break;
+                                }
                         }
                     } while ((second != 0));
 
                     break;
                 case 2:          
                     do {
-                        System.out.println(ConversionBase);
-                        System.out.println("");
-                        System.out.println("");
-                        System.out.println(SubMenuConversion);
-                        System.out.println("0. Volver al menú principal\n");
-                        System.out.println("Elija una opción:");
+                        System.out.println(SubMenuConversion());
                         third = lector.nextInt();
                         lector.nextLine();
                         switch (third) {
@@ -166,8 +158,10 @@ public class Practica {
                                 System.out.print(decimal);
                                 break;
                             default:
-                                System.out.println("Dato incorrecto, repitir");
+                            if(third > 6 || 0 < third){
+                                System.out.println("Dato incorrecto, repetir");
                                 break;
+                            }
                         }
 
                     } while ((third != 0));
@@ -331,6 +325,46 @@ public class Practica {
             }
         }
         return true;
+    }
+    /**
+     * Method for printing out the main menu
+     * @return the String menu which represents the main menu
+     */
+    public static String MenuPrincipal(){
+        String Calculadora = "*******************\n**  Calculadora  **\n*******************";
+        String MenuPrincipal = "\n1. Operaciones aritméticas\n2. Conversiones de base";
+        String Line = "\n--------------------------";
+        String  ExitChoice = "\n0.Salir del programa \n Elija una opción:";
+        String menu = Calculadora + MenuPrincipal + Line + ExitChoice;
+        
+    return  menu;
+    }
+    /**
+     * Method to print out the submenu for basic operations
+     * @return submenu string to print it out
+     */
+    public static String SubMenuAritmetica(){
+        String OperacionAritmetica = "*****************************\n** OPERACIONES ARITMÉTICAS **\n*****************************";
+        String SubMenuAritmetica = "\n1. Sumar\n2. Restar\n3. Multiplicar\n4. Dividir\n5. Resto de la división";
+        String Line = "\n--------------------------";
+        String  ExitChoice = "\n0.Salir del programa \n Elija una opción:";
+        String submenu = OperacionAritmetica + SubMenuAritmetica + Line + ExitChoice;
+       
+        return  submenu;
+    }
+    /**
+     * Method to print out the submenu for conversions
+     * @return submenu string to print it out
+     */
+    public static String SubMenuConversion(){
+        String ConversionBase = "**************************\n** CONVERSIONES DE BASE **\n**************************";
+        String Space = "\n";
+        String SubMenuConversionp1 = "1. De decimal a binario\n2. De decimal a hexadecimal\n3. De binario a decimal";
+        String SubMenuConversionp2 = "\n4. De binario a hexadecimal\n5. De hexadecimal a binario\n6. De hexadecimal a decimal";
+        String Line = "\n--------------------------";
+        String  ExitChoice = "\n0.Salir del programa \n Elija una opción:";
+        String submenu = ConversionBase + Space + SubMenuConversionp1 + SubMenuConversionp2 + Line + ExitChoice;
+        return submenu;
     }
 
 }
