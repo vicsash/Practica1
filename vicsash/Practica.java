@@ -3,8 +3,9 @@ import java.util.Scanner;
 public class Practica {
     public static void main(String args[]) {
 
-        int menu, second = 0, third, numero;
+        int menu, second = 0, third, numero,decimal;
         boolean repeatIfErr = false;
+        String hexadecimal;
         
 
         int r = 0;
@@ -80,53 +81,66 @@ public class Practica {
                                 numero = lector.nextInt();
 
                                 System.out.print(decimalAHexadecimal(numero));
+                                s1.continues();
                             }while (s1.continuar.equals("si"));
                                 break;
                             //Binary to decimal    
                             case 3:
-                                System.out.print("Introduce un numero binario: ");
-                                numero = lector.nextInt();
-                                if (!validarBinario(numero)) {
-                                    System.out.println("Número no válido");
-                                    return;
-                                }
-                                int decimal = binarioADecimal(numero);
-                                System.out.print(decimal);
+                            do{
+                                    System.out.print("Introduce un numero binario: ");
+                                    numero = lector.nextInt();
+                                    if (!validarBinario(numero)) {
+                                        System.out.println("Número no válido");
+                                        return;
+                                    }
+                                    decimal = binarioADecimal(numero);
+                                    System.out.print(decimal);
+                                    s1.continues();
+                            }while (s1.continuar.equals("si"));
                                 break;
                             //Binary to hexadecimal
                             case 4:
-                                System.out.print("Introduce un numero binario: ");
-                                numero = lector.nextInt();
-                                if (!validarBinario(numero)) {
-                                    System.out.println("Número no válido");
-                                    return;
-                                }
-                                decimal = binarioADecimal(numero);
-                                String hexadecimal = binarioAHexadecimal(numero);
-                                System.out.print(hexadecimal);
+                                do{
+                                    System.out.print("Introduce un numero binario: ");
+                                    numero = lector.nextInt();
+                                    if (!validarBinario(numero)) {
+                                        System.out.println("Número no válido");
+                                        return;
+                                    }
+                                    decimal = binarioADecimal(numero);
+                                    hexadecimal = binarioAHexadecimal(numero);
+                                    System.out.print(hexadecimal);
+                                    s1.continues();
+                            }while (s1.continuar.equals("si"));
                                 break;
                             //Hexadecimal to binary    
                             case 5:
-                                System.out.print("Introduce un numero hexadecimal: ");
-                                hexadecimal = lector.nextLine().toUpperCase();
-                                if (!validarHexadecimal(hexadecimal)) {
-                                    System.out.println("Número no válido");
-                                    return;
-                                }
-                                decimal = hexadecimalADecimal(hexadecimal);
-                                Long binarioResultante = decimalABinario(decimal);
-                                System.out.print(binarioResultante);
+                                do{
+                                    System.out.print("Introduce un numero hexadecimal: ");
+                                    hexadecimal = lector.nextLine().toUpperCase();
+                                    if (!validarHexadecimal(hexadecimal)) {
+                                        System.out.println("Número no válido");
+                                        return;
+                                    }
+                                    decimal = hexadecimalADecimal(hexadecimal);
+                                    Long binarioResultante = decimalABinario(decimal);
+                                    System.out.print(binarioResultante);
+                                    s1.continues();
+                            }while (s1.continuar.equals("si"));
                                 break;
                             //Hexadecimal to decimal    
                             case 6:
-                                System.out.print("Introduce un numero hexadecimal: ");
-                                hexadecimal = lector.nextLine().toUpperCase();
-                                if (!validarHexadecimal(hexadecimal)) {
-                                    System.out.println("Número no válido");
-                                    return;
-                                }
-                                decimal = hexadecimalADecimal(hexadecimal);
-                                System.out.print(decimal);
+                                do{
+                                    System.out.print("Introduce un numero hexadecimal: ");
+                                    hexadecimal = lector.nextLine().toUpperCase();
+                                    if (!validarHexadecimal(hexadecimal)) {
+                                        System.out.println("Número no válido");
+                                        return;
+                                    }
+                                    decimal = hexadecimalADecimal(hexadecimal);
+                                    System.out.print(decimal);
+                                    s1.continues();
+                            }while (s1.continuar.equals("si"));
                                 break;
                             default:
                             if(third > 6 || 0 < third){
