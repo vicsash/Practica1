@@ -67,36 +67,36 @@ public class Practica {
                         switch (third) {
                             //Decimal to binary
                             case 1:
-                            do{
-                                System.out.print("Introduce un numero Decimal >= 0: ");
-                                numero = lector.nextInt();
-                                System.out.print(decimalABinario(numero));
-                                s1.continues();
-                            }while (s1.continuar.equals("si"));
+                                do{
+                                    System.out.print("Introduce un numero Decimal >= 0: ");
+                                    numero = lector.nextInt();
+                                    System.out.print(decimalABinario(numero));
+                                    s1.continues();
+                                }while (s1.continuar.equals("si"));
                                 break;
                             //Decimal to hexadecimal    
                             case 2:
-                            do{
-                                System.out.print("Introduce un numero Decimal >= 0: ");
-                                numero = lector.nextInt();
+                                do{
+                                    System.out.print("Introduce un numero Decimal >= 0: ");
+                                    numero = lector.nextInt();
 
-                                System.out.print(decimalAHexadecimal(numero));
-                                s1.continues();
-                            }while (s1.continuar.equals("si"));
+                                    System.out.print(decimalAHexadecimal(numero));
+                                    s1.continues();
+                                }while (s1.continuar.equals("si"));
                                 break;
                             //Binary to decimal    
                             case 3:
-                            do{ 
-                                System.out.print("Introduce un numero binario: ");
-                                numero = lector.nextInt();
-                                if (!validarBinario(numero)) {
-                                    System.out.println("Número no válido");
-                                    return;
-                                }
-                                decimal = binarioADecimal(numero);
-                                System.out.print(decimal);
-                                s1.continues();
-                            }while (s1.continuar.equals("si"));
+                                do{ 
+                                    System.out.print("Introduce un numero binario: ");
+                                    numero = lector.nextInt();
+                                    if (!validarBinario(numero)) {
+                                        System.out.println("Número no válido");
+                                        return;
+                                    }
+                                    decimal = binarioADecimal(numero);
+                                    System.out.print(decimal);
+                                    s1.continues();
+                                }while (s1.continuar.equals("si"));
                                 break;
                             //Binary to hexadecimal
                             case 4:
@@ -111,7 +111,7 @@ public class Practica {
                                     hexadecimal = binarioAHexadecimal(numero);
                                     System.out.print(hexadecimal);
                                     s1.continues();
-                                 }while (s1.continuar.equals("si"));
+                                }while (s1.continuar.equals("si"));
                                 break;
                             //Hexadecimal to binary    
                             case 5:
