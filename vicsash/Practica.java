@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class Practica {
     public static void main(String args[]) {
 
+        // Declaring variables
         int menu, second = 0, third, numero, decimal;
         boolean repeatIfErr = false;
         String hexadecimal;
@@ -15,6 +16,8 @@ public class Practica {
             menu = lector.nextInt();
             lector.nextLine();
             switch (menu) {
+
+                // Menu for Aritmatic operations
                 case 1:
 
                     // Second sub menu for basic opertaions
@@ -57,6 +60,7 @@ public class Practica {
                         break;
                     }
 
+                // Menu for conversions
                 case 2:
                     do {
                         System.out.println(SubMenuConversion());
@@ -151,11 +155,14 @@ public class Practica {
                     } while ((third != 0));
 
                     break;
+                
+                // Exit program
                 case 0:
                     System.out.println("Fin");
 
                     break;
 
+                // Default for if user inputs incorrect data
                 default:
                     System.out.println("Dato introducido incorrecto, introduce dato correcto");
 
