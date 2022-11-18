@@ -68,6 +68,10 @@ public class Practica {
 
                                 System.out.print("Introduce un numero Decimal >= 0: ");
                                 numero = lector.nextInt();
+                                if(numero<0){
+                                    System.out.println("Número no válido");
+                                    break;
+                                }
                                 System.out.print(decimalABinario(numero));
 
                                 break;
@@ -76,7 +80,10 @@ public class Practica {
 
                                 System.out.print("Introduce un numero Decimal >= 0: ");
                                 numero = lector.nextInt();
-
+                                if(numero<0){
+                                    System.out.println("Número no válido");
+                                    break;
+                                }
                                 System.out.print(decimalAHexadecimal(numero));
 
                                 break;
@@ -87,7 +94,7 @@ public class Practica {
                                 numero = lector.nextInt();
                                 if (!validarBinario(numero)) {
                                     System.out.println("Número no válido");
-                                    return;
+                                    break;
                                 }
                                 decimal = binarioADecimal(numero);
                                 System.out.print(decimal);
@@ -100,7 +107,7 @@ public class Practica {
                                 numero = lector.nextInt();
                                 if (!validarBinario(numero)) {
                                     System.out.println("Número no válido");
-                                    return;
+                                    break;
                                 }
                                 decimal = binarioADecimal(numero);
                                 hexadecimal = binarioAHexadecimal(numero);
@@ -113,12 +120,12 @@ public class Practica {
                                 System.out.print("Introduce un numero hexadecimal: ");
                                 hexadecimal = lector.nextLine().toUpperCase();
                                 if (!validarHexadecimal(hexadecimal)) {
-                                    System.out.println("Número no válido");
-                                    return;
+                                    System.out.print("Número no válido");
+                                    break;
                                 }
                                 decimal = hexadecimalADecimal(hexadecimal);
                                 Long binarioResultante = decimalABinario(decimal);
-                                System.out.print(binarioResultante);
+                                System.out.println(binarioResultante);
 
                                 break;
                             // Hexadecimal to decimal
@@ -128,7 +135,7 @@ public class Practica {
                                 hexadecimal = lector.nextLine().toUpperCase();
                                 if (!validarHexadecimal(hexadecimal)) {
                                     System.out.println("Número no válido");
-                                    return;
+                                    break;
                                 }
                                 decimal = hexadecimalADecimal(hexadecimal);
                                 System.out.print(decimal);
@@ -421,7 +428,7 @@ public class Practica {
         String SubMenuConversionp2 = "\n4. De binario a hexadecimal\n5. De hexadecimal a binario\n6. De hexadecimal a decimal";
         String Line = "\n--------------------------";
         String ExitChoice = "\n0.Salir del programa \n Elija una opción:";
-        String submenu = ConversionBase + Space + SubMenuConversionp1 + SubMenuConversionp2 + Line + ExitChoice;
+        String submenu = "\n"+ConversionBase + Space + SubMenuConversionp1 + SubMenuConversionp2 + Line + ExitChoice;
         return submenu;
     }
 
